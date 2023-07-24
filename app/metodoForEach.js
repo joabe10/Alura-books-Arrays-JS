@@ -1,6 +1,9 @@
 const elementoParaInserirLivros = document.getElementById('livros')
+const elementoComValorTotalDeLivrosDisponives = document.getElementById('valor_total_livros_disponiveis')
+
 
 function exibirOsLivrosNaTela(listaDeLivros) {
+    elementoComValorTotalDeLivrosDisponives.innerHTML = ''
     elementoParaInserirLivros.innerHTML = '' //limpar a tela e mostrar apenas o btn clicado
     listaDeLivros.forEach(livro => {
         //let disponibilidade = verificarDispoDoLivro(livro) OPÇÃO A)

@@ -7,11 +7,19 @@ function FiltrarLivros() {
     const elementoBtn = document.getElementById(this.id) //identifica qual btn está sendo clicado 
     const categoria = elementoBtn.value
     //refazer o seguinte código com cmmnts alura para facilitar
-    let livrosFiltrados = categoria == 'disponiveis' ? livros.filter(livro => livro.quantidade > 0) : livros.filter(livro => livro.categoria == categoria)
+    let livrosFiltrados = categoria == 'disponiveis' ? filtrarPorDisponibilidade() : filtrarPorCategoria(categoria)
     exibirOsLivrosNaTela(livrosFiltrados)
     if (categoria == 'disponiveis') {
-        exibirValorTotalDosLivrosDisponiveisNaTela() 
+        exibirValorTotalDosLivrosDisponiveisNaTela() s
     }
+}
+
+function filtrarPorCategoria(categoria) {
+    return livros.filter(livro => livro.categoria == categoria)
+}
+
+function filtrarPorDisponibilidade() {
+    return livros.filter(livro => livro.quantidade > 0)
 }
 
 function exibirValorTotalDosLivrosDisponiveisNaTela() {

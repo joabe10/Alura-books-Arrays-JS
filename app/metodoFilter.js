@@ -5,12 +5,13 @@ FiltrarLivros) ) //n tem parenteses, pois é executado depois
 
 function FiltrarLivros() {
     const elementoBtn = document.getElementById(this.id) //identifica qual btn está sendo clicado 
-    const categoria = elementoBtn.value
+    const categoria = elementoBtn.value //mostra a categoria do btn tocado atraves do value
     //refazer o seguinte código com cmmnts alura para facilitar
     let livrosFiltrados = categoria == 'disponiveis' ? filtrarPorDisponibilidade() : filtrarPorCategoria(categoria)
     exibirOsLivrosNaTela(livrosFiltrados)
     if (categoria == 'disponiveis') {
-        exibirValorTotalDosLivrosDisponiveisNaTela() s
+        const valorTotal = calcularValorTotalDeLivrosDisponiveis(livrosFiltrados)
+        exibirValorTotalDosLivrosDisponiveisNaTela(valorTotal) 
     }
 }
 
@@ -22,10 +23,10 @@ function filtrarPorDisponibilidade() {
     return livros.filter(livro => livro.quantidade > 0)
 }
 
-function exibirValorTotalDosLivrosDisponiveisNaTela() {
+function exibirValorTotalDosLivrosDisponiveisNaTela(valorTotal) {
     elementoComValorTotalDeLivrosDisponives.innerHTML = `
     <div class="livros__disponiveis">
-    <p>Todos os livros disponíveis por R$ <span id="valor">299,00</span></p>
+    <p>Todos os livros disponíveis por R$ <span id="valor">${valorTotal}</span></p>
   </div>
     `
 }
